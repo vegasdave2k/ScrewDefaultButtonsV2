@@ -20,6 +20,7 @@
 				height:	50,
 				disabled: false,
 				toggleClass: "sdbToggleClass",
+				labelToggleClass: "sdbLabelToggleClass",
 			}, options);
 
 			return this.each(function(i){
@@ -119,6 +120,7 @@
 								backgroundPosition: '0 ' + uncheckedPos + "px"
 							});
 							$thisParent.removeClass(defaults.toggleClass);
+							assocLabel.removeClass(defaults.labelToggleClass);
 
 							$thisParent.attr('aria-checked', 'false');
 						}
@@ -128,6 +130,7 @@
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
 							$thisParent.addClass(defaults.toggleClass);
+							assocLabel.addClass(defaults.labelToggleClass);
 							$thisParent.attr('aria-checked', 'true');
 						}
 					});
@@ -199,6 +202,7 @@
 								backgroundPosition:  '0 ' + uncheckedPos + "px"
 							});
 							$thisParent.removeClass(defaults.toggleClass);
+							assocLabel.removeClass(defaults.labelToggleClass);
 						}
 						else {
 							$this.prop("checked", true);
@@ -206,6 +210,7 @@
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
 							$thisParent.addClass(defaults.toggleClass);
+							assocLabel.addClass(defaults.labelToggleClass);
 
 							var otherRadioBtns = $('input[name="'+ $thisName +'"]').not($this);
 							otherRadioBtns.trigger('radioSwitch');
@@ -218,6 +223,7 @@
 						});
 						
 						$thisParent.removeClass(defaults.toggleClass);
+						assocLabel.removeClass(defaults.labelToggleClass);
 					});
 
 					var $thisId = $(this).attr('id');
