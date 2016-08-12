@@ -18,7 +18,8 @@
 				image:	null,
 				width:	50,
 				height:	50,
-				disabled: false
+				disabled: false,
+				toggleClass: "sdbToggleClass",
 			}, options);
 
 			return this.each(function(i){
@@ -115,6 +116,7 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
+							$thisParent.addClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition: '0 ' + uncheckedPos + "px"
 							});
@@ -123,6 +125,7 @@
 						}
 						else {
 							$this.prop("checked", true);
+							$thisParent.removeClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
@@ -193,15 +196,17 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
-								$thisParent.css({
-									backgroundPosition:  '0 ' + uncheckedPos + "px"
-								});
+							$thisParent.addClass(defaults.toggleClass);
+							$thisParent.css({
+								backgroundPosition:  '0 ' + uncheckedPos + "px"
+							});
 						}
 						else {
 							$this.prop("checked", true);
-								$thisParent.css({
-									backgroundPosition:  '0 ' + checkedPos + "px"
-								});
+							$thisParent.removeClass(defaults.toggleClass);
+							$thisParent.css({
+								backgroundPosition:  '0 ' + checkedPos + "px"
+							});
 
 							var otherRadioBtns = $('input[name="'+ $thisName +'"]').not($this);
 							otherRadioBtns.trigger('radioSwitch');
