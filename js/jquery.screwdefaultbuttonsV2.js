@@ -122,7 +122,7 @@
 							$thisParent.removeClass(defaults.toggleClass);
 							console.log("not checked");
 
-							$thisParent.attr('aria-checked', 'false');
+							//$thisParent.attr('aria-checked', 'false');
 						}
 						else {
 							$this.prop("checked", true);
@@ -131,7 +131,6 @@
 							});
 							$thisParent.addClass(defaults.toggleClass);
 							console.log("checked");
-							$thisParent.attr('aria-checked', 'true');
 						}
 					});
 
@@ -159,13 +158,11 @@
 
 						$('input[name="' + $thisName + '"]').each(function (){
 							$(this).parent()
-								.attr('tabindex', '-1')
-								.attr('aria-checked', 'false');
+								.attr('tabindex', '-1');
 						});
 
 						$thisParent
-							.attr('tabindex', '0')
-							.attr('aria-checked', 'true');
+							.attr('tabindex', '0');
 						$thisParent[0].focus();
 					});
 
