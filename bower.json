@@ -1,0 +1,21 @@
+{
+  "name": "customDE-ScrewDefaultButtonsV2",
+  "description": "Fork of ScrewDefaultButtonsV2",
+  "main": "js/jquery.screwdefaultbuttonsV2.js",
+  "keywords": [
+    "screwdefaultbuttons"
+  ],
+  "authors": [
+    "mattSOLANO",
+		"vegasdave2k"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/vegasdave2k/ScrewDefaultButtonsV2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
