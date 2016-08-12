@@ -95,7 +95,6 @@
 				$this.trigger('resetBackground');
 
 				if ($this.is(':checkbox')){
-
 					$thisParent.on('click', function(){
 						if (!($this.is(':disabled'))){
 							$this.change();
@@ -120,7 +119,6 @@
 								backgroundPosition: '0 ' + uncheckedPos + "px"
 							});
 							$thisParent.removeClass(defaults.toggleClass);
-							console.log("not checked");
 
 							$thisParent.attr('aria-checked', 'false');
 						}
@@ -130,7 +128,6 @@
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
 							$thisParent.addClass(defaults.toggleClass);
-							console.log("checked");
 							$thisParent.attr('aria-checked', 'true');
 						}
 					});
@@ -196,14 +193,12 @@
 
 
 					$this.on('change', function(){
-						console.log($this );
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
 							$thisParent.css({
 								backgroundPosition:  '0 ' + uncheckedPos + "px"
 							});
 							$thisParent.removeClass(defaults.toggleClass);
-							console.log("not checked");
 						}
 						else {
 							$this.prop("checked", true);
@@ -211,20 +206,18 @@
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
 							$thisParent.addClass(defaults.toggleClass);
-							console.log("checked");
 
 							var otherRadioBtns = $('input[name="'+ $thisName +'"]').not($this);
 							otherRadioBtns.trigger('radioSwitch');
 						}
-						console.log("checked="+$this.prop('checked'));
 					});
 
 					$this.on('radioSwitch', function(){
 						$thisParent.css({
 							backgroundPosition: '0 ' + uncheckedPos  + "px"
 						});
+						
 						$thisParent.removeClass(defaults.toggleClass);
-
 					});
 
 					var $thisId = $(this).attr('id');
