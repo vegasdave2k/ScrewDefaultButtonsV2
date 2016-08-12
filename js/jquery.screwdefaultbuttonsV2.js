@@ -196,6 +196,7 @@
 
 
 					$this.on('change', function(){
+						console.log("checked="+$this.prop('checked'));
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
 							$thisParent.css({
