@@ -196,7 +196,6 @@
 
 
 					$this.on('change', function(){
-						console.log("checked="+$this.prop('checked'));
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
 							$thisParent.css({
@@ -216,6 +215,7 @@
 							var otherRadioBtns = $('input[name="'+ $thisName +'"]').not($this);
 							otherRadioBtns.trigger('radioSwitch');
 						}
+						console.log("checked="+$this.prop('checked'));
 					});
 
 					$this.on('radioSwitch', function(){
