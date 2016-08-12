@@ -196,7 +196,7 @@
 
 
 					$this.on('change', function(){
-						console.log($this);
+						console.log($this );
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
 							$thisParent.css({
@@ -223,6 +223,7 @@
 						$thisParent.css({
 							backgroundPosition: '0 ' + uncheckedPos  + "px"
 						});
+						$thisParent.removeClass(defaults.toggleClass);
 
 					});
 
