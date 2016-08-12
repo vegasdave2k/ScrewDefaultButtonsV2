@@ -116,19 +116,21 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
-							$thisParent.addClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition: '0 ' + uncheckedPos + "px"
 							});
+							$thisParent.removeClass(defaults.toggleClass);
+							console.log("not checked");
 
 							$thisParent.attr('aria-checked', 'false');
 						}
 						else {
 							$this.prop("checked", true);
-							$thisParent.removeClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
+							$thisParent.addClass(defaults.toggleClass);
+							console.log("checked");
 							$thisParent.attr('aria-checked', 'true');
 						}
 					});
@@ -196,17 +198,19 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
-							$thisParent.addClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition:  '0 ' + uncheckedPos + "px"
 							});
+							$thisParent.removeClass(defaults.toggleClass);
+							console.log("not checked");
 						}
 						else {
 							$this.prop("checked", true);
-							$thisParent.removeClass(defaults.toggleClass);
 							$thisParent.css({
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
+							$thisParent.addClass(defaults.toggleClass);
+							console.log("checked");
 
 							var otherRadioBtns = $('input[name="'+ $thisName +'"]').not($this);
 							otherRadioBtns.trigger('radioSwitch');
