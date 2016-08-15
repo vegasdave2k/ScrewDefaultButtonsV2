@@ -100,8 +100,7 @@
 						$thisParent.css({
 							backgroundPosition: '0 ' + checkedPos + "px"
 						});
-					}
-					else {
+					} else {
 						$thisParent.css({
 							backgroundPosition: '0 ' + uncheckedPos + "px"
 						});
@@ -131,27 +130,30 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
+							
 							$thisParent.css({
 								backgroundPosition: '0 ' + uncheckedPos + "px"
 							});
+							
 							$thisParent.removeClass(defaults.toggleClass);
 							assocLabel.removeClass(defaults.labelToggleClass);
 
 							$thisParent.attr('aria-checked', 'false');
-						}
-						else {
+						} else {
 							$this.prop("checked", true);
+							
 							$thisParent.css({
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
+							
 							$thisParent.addClass(defaults.toggleClass);
 							assocLabel.addClass(defaults.labelToggleClass);
+							
 							$thisParent.attr('aria-checked', 'true');
 						}
 					});
 
-				}
-				else if ($this.is(':radio')) {
+				} else if ($this.is(':radio')) {
 					$thisParent.addClass('styledRadio');
 
 					var $thisName = $this.attr('name');
@@ -198,12 +200,14 @@
 							if (thisIndex > -1 && $radioGroup[thisIndex - 1]) {
 								nextUp = $radioGroup[thisIndex - 1].parentNode;
 								e.preventDefault();
+								
 								$(nextUp).trigger('click');
 							}
 						} else if (which === 39 || which === 40) {
 							if (thisIndex > -1 && $radioGroup[thisIndex + 1]) {
 								nextUp = $radioGroup[thisIndex + 1].parentNode;
 								e.preventDefault();
+								
 								$(nextUp).trigger('click');
 							}
 						}
@@ -213,17 +217,20 @@
 					$this.on('change', function(){
 						if ($this.prop('checked')){
 							$this.prop("checked", false);
+							
 							$thisParent.css({
 								backgroundPosition:  '0 ' + uncheckedPos + "px"
 							});
+							
 							$thisParent.removeClass(defaults.toggleClass);
 							assocLabel.removeClass(defaults.labelToggleClass);
-						}
-						else {
+						} else {
 							$this.prop("checked", true);
+							
 							$thisParent.css({
 								backgroundPosition:  '0 ' + checkedPos + "px"
 							});
+							
 							$thisParent.addClass(defaults.toggleClass);
 							assocLabel.addClass(defaults.labelToggleClass);
 
@@ -243,6 +250,7 @@
 
 					var $thisId = $(this).attr('id');
 					var $thisLabel = $('label[for="' + $thisId + '"]');
+					
 					$thisLabel.on('click', function(){
 						$thisParent.trigger('click');
 					});
@@ -251,6 +259,7 @@
 				if(!$.support.leadingWhitespace){
 					var $thisId = $(this).attr('id');
 					var $thisLabel = $('label[for="' + $thisId + '"]');
+					
 					$thisLabel.on('click', function(){
 						$thisParent.trigger('click');
 					});
