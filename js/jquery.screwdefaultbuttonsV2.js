@@ -55,7 +55,7 @@
 
 				$thisParent.addClass(buttonClass);
 				
-				$thisParent.attr('onclick',buttonClick );
+				$thisParent.attr('onclick', buttonClick);
 				
 				$thisParent.css({
 					'background-image': $thisImage,
@@ -68,7 +68,7 @@
 				var checkedPos = -(defaults.height);
 				
 				if ($this.is(':disabled')){	
-					//$this.trigger('resetBackground');
+					$this.trigger('resetBackground');
 									
 					$thisParent.addClass(defaults.disabledToggleClass);
 				}
@@ -106,8 +106,6 @@
 							backgroundPosition: '0 ' + uncheckedPos + "px"
 						});
 					}			
-					
-					$thisParent.removeClass(defaults.disabledToggleClass);
 				});
 
 				$this.trigger('resetBackground');
