@@ -21,6 +21,7 @@
 				disabled: false,
 				toggleClass: "sdbToggleClass",
 				labelToggleClass: "sdbLabelToggleClass",
+				disabledToggleClass: "sdbDisabledToggleClass",
 			}, options);
 
 			return this.each(function(i){
@@ -29,6 +30,7 @@
 
 				var $thisImage = defaults.image;
 				var dataImage = $this.data('sdb-image');
+				
 				if (dataImage){
 					$thisImage = dataImage;
 				}
@@ -46,12 +48,15 @@
 
 				var inputId = $this.attr('id');
 				var assocLabel = inputId && $('label[for="' + inputId + '"]');
+				
 				if (assocLabel) {
 					$thisParent.attr('title', assocLabel.text());
 				}
 
 				$thisParent.addClass(buttonClass);
+				
 				$thisParent.attr('onclick',buttonClick );
+				
 				$thisParent.css({
 					'background-image': $thisImage,
 					width:	defaults.width,
@@ -61,22 +66,32 @@
 
 				var uncheckedPos = 0;
 				var checkedPos = -(defaults.height);
-				if ($this.is(':disabled')){
-					uncheckedPos = -(defaults.height * 2);
-					checkedPos = -(defaults.height * 3);
+				
+				if ($this.is(':disabled')){	
+					//$this.trigger('resetBackground');
+									
+					$thisParent.addClass(defaults.disabledToggleClass);
 				}
 
 				$this.on('disableBtn', function(){
 					$this.attr('disabled', 'disabled');
-					uncheckedPos = -(defaults.height * 2);
-					checkedPos = -(defaults.height * 3);
+					
+					uncheckedPos = 0;
+					checkedPos = -(defaults.height);					
+					
+					$thisParent.addClass(defaults.disabledToggleClass);
+					
 					$this.trigger('resetBackground');
 				});
 
 				$this.on('enableBtn', function(){
 					$this.removeAttr('disabled');
+					
 					uncheckedPos = 0;
-					checkedPos = -(defaults.height);
+					checkedPos = -(defaults.height);					
+					
+					$thisParent.removeClass(defaults.disabledToggleClass);
+					
 					$this.trigger('resetBackground');
 				});
 
@@ -90,7 +105,9 @@
 						$thisParent.css({
 							backgroundPosition: '0 ' + uncheckedPos + "px"
 						});
-					}
+					}			
+					
+					$thisParent.removeClass(defaults.disabledToggleClass);
 				});
 
 				$this.trigger('resetBackground');
